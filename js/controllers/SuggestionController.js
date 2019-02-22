@@ -13,7 +13,9 @@ app.controller('SuggestionController', [
 
     $scope.addComment = function(){
       //if input empty, don't submit
-      if(!$scope.comment || $scope.comment === {}) {
+      let commentIsEmpty = !$scope.comment || $scope.comment === {};
+      let noDescription = !commentIsEmpty && (!$scope.comment.description || $scope.comment.description === '');
+      if(commentIsEmpty || noDescription) {
         return;
       }
       
