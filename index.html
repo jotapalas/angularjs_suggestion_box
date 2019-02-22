@@ -12,7 +12,17 @@
   <body ng-app="SuggestionBoxApp">
 
     <div class="main" ng-controller="MainController">
-      {{ msg }}
+      <div class="container">
+        <div class="row" ng-repeat="suggestion in suggestions">
+          <h2>{{ suggestion.title }}</h2>
+          <p>{{ suggestion.upvotes }} upvotes.</p>
+          <div class="container">
+            <div class="row" ng-repeat="comment in suggestion.comments">
+              <p>{{ comment }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
 
@@ -21,6 +31,9 @@
 
     <!--Controllers-->
     <script src="js/controllers/MainController.js"></script>
+
+    <!--Services-->
+    <script src="js/services/suggestions.js"></script>
 
   </body>
 </html>

@@ -1,3 +1,8 @@
-app.controller('MainController', ['$scope', function($scope){
-  $scope.msg = "Hello, World!";
-}]);
+app.controller('MainController', [
+  '$scope',
+  'suggestions', 
+
+  function($scope, suggestions){
+    $scope.suggestions = suggestions;
+  }
+]);
