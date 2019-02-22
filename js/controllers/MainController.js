@@ -20,5 +20,9 @@ app.controller('MainController', [
       //after submit, clear input
       $scope.title = '';
     };
+
+    $scope.upvote = function(suggestion){
+      suggestion.upvotes++;
+    }
   }
 ]);
