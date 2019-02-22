@@ -7,34 +7,15 @@
 
     <!--Scripts-->
     <script src="js/vendor/angular.min.js"></script>
+    <script src="js/vendor/angular-route.min.js"></script>
 
   </head>
   <body ng-app="SuggestionBoxApp">
-
-    <div class="main" ng-controller="MainController">
-
-      <div class="container">
-        <div class="row" ng-repeat="suggestion in suggestions | orderBy:'-upvotes'">
-          <h2>{{ suggestion.title }}</h2>
-          <p>
-            <span class="glyphicon glyphicon-plus-sign" ng-click="upvote(suggestion)"></span> {{ suggestion.upvotes }} upvotes.
-          </p>
-          <div class="container">
-            <div class="row" ng-repeat="comment in suggestion.comments">
-              <p>{{ comment }}</p>
-            </div>
-          </div>
-        </div>
-
-        <form ng-submit="addSuggestion()" style="margin-top: 50px">
-          <h3> Submit Your Suggestion </h3>
-          <div class="form-group">
-          <input type="text" class="form-control" placeholder="Great ideas here" ng-model="title"></input>
-          </div>
-          <button type="submit" class="btn btn-primary">Suggest</button>
-        </form>    
-      </div>
+    
+    <div class="container">
+      <div ng-view></div>
     </div>
+    
 
 
     <!--Modules-->
