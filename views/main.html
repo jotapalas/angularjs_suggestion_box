@@ -1,9 +1,16 @@
 <div class="container">
   <div class="row" ng-repeat="suggestion in suggestions | orderBy:'-upvotes'">
-    <h2>{{ suggestion.title }}</h2>
-    <p>
+    
+    <div class="col-md-12">
+      <h2>{{ suggestion.title }}</h2>
+    </div>
+    <div class="col-md-3">
       <span class="glyphicon glyphicon-plus-sign" ng-click="upvote(suggestion)"></span> {{ suggestion.upvotes }} upvotes.
-    </p>
+    </div>
+    <div class="col-md-3">
+      <a href="#!/suggestion/{{$index}}">View</a>
+    </div>
+    <div class="col-md-6"></div>
   </div>
 
   <form ng-submit="addSuggestion()" style="margin-top: 50px">

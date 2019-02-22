@@ -1,0 +1,33 @@
+<div class="container">
+  <a href="/">BACK</a>
+  <h1>{{ suggestion.title }}</h1>
+  <p>{{ suggestion.description }}</p>
+  <div class="container">
+    <h2>Comments</h2>
+    <div class="row" ng-repeat="comment in suggestion.comments | orderBy:'-upvotes'">
+      <h3>{{ comment.title || "untitled"}}</h3>
+      <div class="comment-author">{{ comment.author || "Anonymous"}}</div>
+      <div class="comment-description">{{ comment.description }}</div>
+      <span class="glyphicon glyphicon-plus-sign" ng-click="upvote(comment)"></span> {{ comment.upvotes }} upvotes.
+    </div>
+
+    <form ng-submit="addComment()" style="margin-top: 50px">
+      <h3> Submit Your Comment </h3>
+      <div class="form-group">
+        <div class="col-md-6">
+          <input type="text" class="form-control" placeholder="Title" ng-model="comment.title"></input>
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control" placeholder="Name" ng-model="comment.author"></input>
+        </div>
+        <div class="col-md-12">
+          <input type="textarea" class="form-control" placeholder="Description" ng-model="comment.description"></input>
+        </div>
+      </div>
+      <div class="col-md-12 text-center">
+        <button type="submit" class="btn btn-primary">Comment</button>
+      </div>
+    </form>   
+  </div>
+  <hr>
+</div>
